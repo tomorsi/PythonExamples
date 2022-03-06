@@ -3,9 +3,12 @@ def main():
     average = averageGPA()
 
 def getScore():
-    score = float(input("Enter score 1 to 100: "))
-    if score < 1 or score > 100:       
-    	print("Invalid entry: Enter score 1 to 100"), score
+    score = -1
+    while score<0 or  score>100 :
+        score = float(input("Enter score 1 to 100: "))
+        if score < 0 or score > 100:       
+    	    print("Invalid entry: Enter score 1 to 100: ", score)
+            
     print ("score entered is: " , score)
     return score
 
@@ -16,7 +19,7 @@ def getGPApoint(score):
     elif score >= 60.0 and score <= 69.0:
         gpaPoint = 1.0
     elif score >= 70.0 and score <= 79.0:
-        gpaPont = 2.0
+        gpaPoint = 2.0
     elif score >= 80.0 and score <= 89.0:
         gpaPoint = 3.0
     else :

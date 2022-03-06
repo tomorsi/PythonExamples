@@ -1,40 +1,39 @@
 
-# Total number of grades
-NUM_OF_GRADES = 5
-debug_tabs = 0;
-
+def main():
+    average = averageGPA()
 
 def getScore():
-    global debug_tabs
-    print(debug_tabs*'\t', "entered: ", getScore.__name__, sep=" ")
-    print(debug_tabs*'\t', "exited: ", getScore.__name__, sep=" ")
+    score = float(input("Enter score 1 to 100: "))
+    if score < 1 or score > 100:       
+    	print("Invalid entry: Enter score 1 to 100"), score
+    print ("score entered is: " , score)
+    return score
 
-def getGPAPoint():
-    global debug_tabs
-    print(debug_tabs*'\t',"entered: ", getGPAPoint.__name__, sep=" ")
-    print(debug_tabs*'\t',"exited: ", getGPAPoint.__name__, sep=" ")
-
+def getGPApoint(score):
+    print("checking score: ", score)
+    if score < 60.0:
+        gpaPoint = 0
+    elif score >= 60.0 and score <= 69.0:
+        gpaPoint = 1.0
+    elif score >= 70.0 and score <= 79.0:
+        gpaPont = 2.0
+    elif score >= 80.0 and score <= 89.0:
+        gpaPoint = 3.0
+    else :
+        gpaPoint = 4.0
+    return gpaPoint
+        
 def averageGPA():
-    global debug_tabs
-    print(debug_tabs*'\t',"entered: ", averageGPA.__name__)
-    debug_tabs = debug_tabs + 1
-    for grade in range(NUM_OF_GRADES):
-        getScore()
-        getGPAPoint()
+    totalGPA = 0
+    for grade in range(5):
+        score = getScore()
+        print("score: ", score)
+        gpaPoint = getGPApoint(score)
+        print("gpa point: ", gpaPoint)
+        totalGPA = totalGPA + gpaPoint
+        print("total: ", totalGPA)
+    average = totalGPA / 5.0
+    print("Your average is: ", average)
 
-    debug_tabs = debug_tabs - 1
-    print(debug_tabs*'\t',"exited: ", averageGPA.__name__)
-
-def main():
-    global debug_tabs
-    print(debug_tabs*'\t',"entered: ", main.__name__)
-    debug_tabs = debug_tabs + 1
-    averageGPA();
-    debug_tabs = debug_tabs - 1
-    print(debug_tabs*'\t',"exited: ", main.__name__)
-    
 if __name__ == "__main__":
     main()
-
-
-    

@@ -1,6 +1,8 @@
 
 def main():
     average = averageGPA()
+    totalGPA = 0
+    print("Your average GPA is: "), average
 
 def getScore():
     score = float(input("Enter score 1 to 100: "))

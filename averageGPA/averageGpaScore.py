@@ -5,9 +5,9 @@ def main():
 def getScore():
     score = -1
     while score<0 or  score>100 :
-        score = float(input("Enter score 1 to 100: "))
+        score = float(input("Enter score 0 to 100: "))
         if score < 0 or score > 100:       
-    	    print("Invalid entry: Enter score 1 to 100: ", score)
+    	    print("Invalid entry: Enter score 0 to 100: ", score)
             
     print ("score entered is: " , score)
     return score
